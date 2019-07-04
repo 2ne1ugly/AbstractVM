@@ -1,4 +1,4 @@
-#include "..\include\Exceptions.hpp"
+#include "Exceptions.hpp"
 
 OverflowInt8::OverflowInt8() : std::overflow_error("Int8 overflow")
 {
@@ -48,11 +48,11 @@ ModuloByZero::ModuloByZero() : std::domain_error("Modulo by zero")
 {
 }
 
-LexicalError::LexicalError(std::string str) : std::domain_error("Invalid line: " + str)
+LexicalError::LexicalError(std::string str) : std::invalid_argument("Invalid line: " + str)
 {
 }
 
-UnknownInstruction::UnknownInstruction(std::string str) : std::domain_error("Unknown Instruction: " + str)
+UnknownInstruction::UnknownInstruction(std::string str) : std::invalid_argument("Unknown Instruction: " + str)
 {
 }
 
@@ -65,5 +65,9 @@ AssertFailed::AssertFailed() : std::logic_error("Assert Failed")
 }
 
 NotEnoughStackElement::NotEnoughStackElement() : std::logic_error("Less than two stack element")
+{
+}
+
+CannotManage::CannotManage() : std::domain_error("cannot manage number")
 {
 }
